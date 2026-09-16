@@ -1,0 +1,1158 @@
+/* Tundras.com Dark Mode
+   Colors adapted from TacomaWorld's official dark style (style_id=4),
+   since both sites run the same XenForo build with matching markup.
+   All declarations are !important: tundras.com's own CSS already uses
+   !important liberally on backgrounds/colors, so a plain override loses
+   regardless of cascade order or matching specificity. */
+
+html, body {
+  background-color: rgb(25, 25, 25) !important;
+}
+
+html {
+  background-color: rgb(25, 25, 25) !important;
+}
+
+body {
+  color: rgb(246,246,246) !important;
+}
+
+a:link,a:visited {
+  color: rgb(255,255,255) !important;
+}
+
+.ugc a:link, .ugc a:visited {
+  color: rgb(143, 210, 255) !important;
+}
+
+#pageDescription {
+  color: rgb(255,255,255) !important;
+}
+
+.avatar img, .avatar .img,.avatarCropper {
+  background-color: rgb(25, 25, 25) !important;
+}
+
+body .muted, body a.muted, body .muted a {
+  color: rgb(255, 255, 255) !important;
+}
+
+body .faint, body a.faint, body .faint a {
+  color: rgb(255,255,255) !important;
+}
+
+.xenPreviewTooltip .arrow span {
+  border-top: 15px solid rgb(25, 25, 25) !important;
+}
+
+.importantMessage {
+  color: #E07F00 !important;
+}
+
+.importantMessage a {
+  color: #E07F00 !important;
+}
+
+.sectionMain {
+  background-color: rgb(25, 25, 25) !important;
+  border: 0 !important;
+}
+
+.heading, .xenForm .formHeader {
+  color: rgb(77, 77, 77) !important;
+}
+
+.heading a {
+  color: rgb(77,77,77) !important;
+}
+
+.subHeading {
+  color: rgb(255, 255, 255) !important;
+  background-color: rgb(10, 53, 82) !important;
+}
+
+.subHeading a {
+  color: rgb(255, 255, 255) !important;
+}
+
+.textHeading, .xenForm .sectionHeader {
+  color: rgb(246, 246, 246) !important;
+  border-bottom: 1px solid rgb(79, 81, 82) !important;
+}
+
+.larger.textHeading, .xenForm .sectionHeader {
+  color: rgb(203, 226, 243) !important;
+}
+
+.larger.textHeading a, .xenForm .sectionHeader a {
+  color: rgb(203,226,243) !important;
+}
+
+.primaryContent {
+  background-color: rgb(25, 25, 25) !important;
+  border-bottom: 1px solid rgb(79, 81, 82) !important;
+}
+
+.primaryContent a {
+  color: rgb(246,246,246) !important;
+}
+
+.secondaryContent {
+  background-color: rgb(41, 41, 41) !important;
+  border-bottom: 1px solid rgb(79, 81, 82) !important;
+}
+
+.secondaryContent a {
+  color: rgb(246,246,246) !important;
+}
+
+.sectionFooter {
+  color: #fff !important;
+  border-bottom: 1px solid rgb(203, 226, 243) !important;
+}
+
+.sectionFooter a {
+  color: #fff !important;
+}
+
+.tabs {
+  background: inherit !important;
+  border-bottom: 1px solid rgb(203, 226, 243) !important;
+}
+
+.tabs li a, .tabs.noLinks li {
+  color: rgb(246, 246, 246) !important;
+  background: #000 !important;
+  border: 1px solid rgb(203, 226, 243) !important;
+}
+
+.tabs li:hover a, .tabs.noLinks li:hover {
+  background-color: rgb(203, 226, 243) !important;
+}
+
+.tabs li.active a, .tabs.noLinks li.active {
+  background-color: rgb(25, 25, 25) !important;
+}
+
+.Popup .PopupControl:hover,.Popup.PopupContainerControl:hover {
+  color: inherit !important;
+  background-color: rgb(79, 81, 82) !important;
+}
+
+.Menu {
+  border: 1px solid rgb(45, 50, 54) !important;
+}
+
+.Menu .primaryContent {
+  background-color: rgba(25, 25, 25, 0.96) !important;
+}
+
+.Menu .secondaryContent {
+  background-color: rgba(41, 41, 41, 0.96) !important;
+}
+
+.Menu .sectionFooter {
+  background-color: rgba(79, 81, 82, 0.9) !important;
+}
+
+.formPopup {
+  background-color: rgb(25, 25, 25) !important;
+}
+
+.formPopup .controlsWrapper {
+  background: inherit !important;
+}
+
+.formPopup .advSearchLink {
+  border: 1px solid rgb(79, 81, 82) !important;
+}
+
+.formPopup .advSearchLink:hover {
+  background-color: rgb(79,81,82) !important;
+}
+
+.xenOverlay .overlayScroll .sortable-placeholder {
+  background-color: rgb(203,226,243) !important;
+}
+
+.xenOverlay .formOverlay a.muted, .xenOverlay .formOverlay .muted a {
+  color: rgb(255, 255, 255) !important;
+}
+
+.xenOverlay .formOverlay .heading {
+  color: #efefef !important;
+  border: 1px solid #000 !important;
+  background: #434343 !important;
+}
+
+.xenOverlay .formOverlay .subHeading {
+  color: rgb(255, 255, 255) !important;
+  background-color: rgb(10, 53, 82) !important;
+}
+
+.xenOverlay .formOverlay .textHeading {
+  color: rgb(246, 246, 246) !important;
+}
+
+.xenOverlay .formOverlay .textCtrl {
+  color: #fff !important;
+  border-color: rgb(203, 226, 243) !important;
+}
+
+.xenOverlay .formOverlay .textCtrl:focus, .xenOverlay .formOverlay .textCtrl.Focus {
+  background-color: #191919 !important;
+}
+
+.xenOverlay .formOverlay .tabs {
+  border-color: rgb(203, 226, 243) !important;
+}
+
+.xenOverlay .formOverlay .tabs a {
+  border-color: rgb(203, 226, 243) !important;
+}
+
+.xenOverlay .formOverlay .tabPanel {
+  border: 1px solid rgb(203, 226, 243) !important;
+}
+
+#StackAlerts .stackAlert {
+  border: 1px solid rgb(45, 50, 54) !important;
+}
+
+#StackAlerts .stackAlertContent {
+  border: solid 2px rgb(79, 81, 82) !important;
+  background: rgba(77, 77, 77, 0.9) !important;
+}
+
+.dataTable caption {
+  color: rgb(77, 77, 77) !important;
+}
+
+.dataTable tr.dataRow td {
+  border-bottom: 1px solid rgb(79, 81, 82) !important;
+}
+
+.dataTable tr.dataRow th {
+  color: #E07F00 !important;
+}
+
+.dataTable .dataRow .dataOptions a.secondaryContent {
+  border-left: 1px solid rgb(79, 81, 82) !important;
+}
+
+.dataTable .dataRow .dataOptions a.secondaryContent:hover {
+  background-color: rgb(79, 81, 82) !important;
+}
+
+.dataTable .dataRow .delete {
+  border-left: 1px solid rgb(79, 81, 82) !important;
+  background-color: rgb(41, 41, 41) !important;
+}
+
+.memberListItem .extra .bigNumber {
+  color: rgb(255, 255, 255) !important;
+}
+
+.PageNav a {
+  color: rgb(224, 224, 224) !important;
+  background-color: rgb(47, 47, 47) !important;
+  border: 1px solid rgb(47, 47, 47) !important;
+}
+
+.PageNav a.currentPage {
+  background-color: rgb(38,64,82) !important;
+  border-color: rgb(38,64,82) !important;
+}
+
+a.PageNavPrev,a.PageNavNext {
+  color: rgb(246, 246, 246) !important;
+}
+
+.PageNav a:hover, .PageNav a:focus {
+  background-color: rgb(38, 64, 82) !important;
+  border-color: rgb(38, 64, 82) !important;
+}
+
+.pairs dt, .pairsInline dt, .pairsRows dt, .pairsColumns dt, .pairsJustified dt {
+  color: rgb(255,255,255) !important;
+}
+
+.previewTooltip .posterDate {
+  border-top: 1px solid rgb(79,81,82) !important;
+}
+
+.blockLinksList a, .blockLinksList label {
+  color: #fff !important;
+}
+
+.blockLinksList a:hover, .blockLinksList a:focus, .blockLinksList li.kbSelect a, .blockLinksList label:hover, .blockLinksList label:focus, .blockLinksList li.kbSelect label {
+  background-color: rgb(79, 81, 82) !important;
+}
+
+.blockLinksList a:active, .blockLinksList a.selected, .blockLinksList label:active, .blockLinksList label.selected {
+  background-color: rgb(203, 226, 243) !important;
+}
+
+.xenOverlay .errorOverlay .exceptionMessage {
+  color: rgb(255,255,255) !important;
+}
+
+.bbCodeImageFullSize {
+  background-color: rgb(25,25,25) !important;
+}
+
+.xenForm fieldset, .xenForm .formGroup {
+  border-top: 1px solid rgb(79, 81, 82) !important;
+}
+
+.xenForm fieldset + .ctrlUnit, .xenForm .formGroup + .ctrlUnit, .xenForm .submitUnit {
+  border-top: 1px solid rgb(79, 81, 82) !important;
+}
+
+.textCtrl {
+  color: rgb(255, 255, 255) !important;
+}
+
+.textCtrl:focus,.textCtrl.Focus {
+  background: inherit !important;
+}
+
+textarea.textCtrl:focus {
+  background-image: none !important;
+}
+
+.button.primary {
+  background-color: rgb(203, 226, 243) !important;
+}
+
+.button:focus {
+  border-color: rgb(45, 50, 54) !important;
+}
+
+.ctrlUnit > dt dfn {
+  color: rgb(255, 255, 255) !important;
+}
+
+.ctrlUnit > dd .explain {
+  color: rgb(255, 255, 255) !important;
+}
+
+.ctrlUnit > dd .rule {
+  border-bottom: 1px solid rgb(79, 81, 82) !important;
+}
+
+.ctrlUnit > dd > * > li .hint {
+  color: rgb(255, 255, 255) !important;
+}
+
+#calroot {
+  background-color: rgb(25, 25, 25) !important;
+}
+
+.calweek a:hover,.calfocus {
+  background-color: rgb(77,77,77) !important;
+}
+
+a.caloff {
+  color: rgb(255,255,255) !important;
+}
+
+a.caloff:hover {
+  background-color: rgb(77,77,77) !important;
+}
+
+#calcurrent {
+  color: rgb(77,77,77) !important;
+}
+
+ul.autoCompleteList {
+  background-color: rgb(41, 41, 41) !important;
+  border: 1px solid rgb(45, 50, 54) !important;
+}
+
+ul.autoCompleteList li:hover, ul.autoCompleteList li.selected {
+  background-color: rgb(79, 81, 82) !important;
+}
+
+.explain .CurrentStatus {
+  color: rgb(246, 246, 246) !important;
+}
+
+#header {
+  background-color: rgb(0, 0, 0) !important;
+}
+
+#visitorInfo {
+  background: rgb(203, 226, 243) !important;
+}
+
+.footer .pageContent {
+  color: rgb(203, 226, 243) !important;
+}
+
+.footer a, .footer a:visited {
+  color: rgb(203, 226, 243) !important;
+}
+
+.footer a:hover, .footer a:active {
+  color: rgb(255, 255, 255) !important;
+}
+
+.breadcrumb {
+  border: 1px solid rgb(105,105,105) !important;
+}
+
+.breadcrumb .crust a.crumb {
+  border-bottom: 1px solid rgb(105, 105, 105) !important;
+}
+
+.breadcrumb .crust .arrow {
+  border-left-color: rgb(105, 105, 105) !important;
+}
+
+.navTabs {
+  background-color: rgb(10, 53, 82) !important;
+  border: 1px solid rgb(0, 36, 62) !important;
+}
+
+.navTabs .navTab.PopupClosed .navLink {
+  color: #fff !important;
+}
+
+.navTabs .navTab.PopupClosed:hover {
+  background-color: #176093 !important;
+}
+
+.navTabs .navTab.PopupClosed .navLink:hover {
+  color: #fff !important;
+}
+
+.navTabs .navTab.selected .navLink {
+  color: #fff !important;
+  background: #176093 !important;
+  text-shadow: none !important;
+}
+
+.navTabs .navTab.selected .tabLinks {
+  background: #72828d !important;
+}
+
+.navTabs .navTab.selected .tabLinks a {
+  color: #f1f1f1 !important;
+}
+
+.navTabs .navTab.selected .tabLinks a:hover, .navTabs .navTab.selected .tabLinks a:focus {
+  color: #fff !important;
+  background-color: rgb(79, 81, 82) !important;
+  border: 1px solid rgb(45, 50, 54) !important;
+  text-shadow: 0 0 0 transparent, 1px 1px 0px rgb(77, 77, 77) !important;
+}
+
+.navPopup .listPlaceholder ol.secondaryContent.Unread {
+  background-color: rgb(41, 41, 41) !important;
+}
+
+.navPopup .listItem {
+  border-bottom: 1px solid rgb(79, 81, 82) !important;
+}
+
+.navPopup .PopupItemLinkActive:hover {
+  background-color: #191919 !important;
+}
+
+#QuickSearch {
+  background-color: rgb(25, 25, 25) !important;
+}
+
+#headerMover #headerProxy {
+  background-color: rgb(0, 0, 0) !important;
+}
+
+#content .pageContent {
+  background-color: rgb(25, 25, 25) !important;
+}
+
+.sidebar .section .primaryContent h3, .sidebar .section .secondaryContent h3, .profilePage .mast .section.infoBlock h3 {
+  color: rgb(246, 246, 246) !important;
+  border-bottom: 1px solid rgb(79, 81, 82) !important;
+}
+
+.sidebar .section .primaryContent h3 a, .sidebar .section .secondaryContent h3 a {
+  color: rgb(143, 210, 255) !important;
+}
+
+.sidebar .section .secondaryContent .footnote, .sidebar .section .secondaryContent .minorHeading {
+  color: rgb(170, 170, 170) !important;
+}
+
+.sidebar .section .secondaryContent .minorHeading a {
+  color: rgb(143, 210, 255) !important;
+}
+
+.sidebar .avatarList .userTitle {
+  color: rgb(255, 255, 255) !important;
+}
+
+#SignupButton .inner {
+  color: rgb(25, 25, 25) !important;
+}
+
+/* The site paints these two buttons with WHITE text on its own light gradient
+   sprite, and the dark theme never touched them: "Post Reply" ended up white on
+   #A5CAE4 (1.73:1) and "More..." white on #DCDCEB (1.36:1) -- both effectively
+   unreadable. The buttons keep their light background (it is a background-image
+   sprite, not a color we can simply recolor), so darken the text instead, which
+   is exactly what .button / input.button already do on this site. Not a
+   Chromium-only bug: Firefox computes the same values. */
+.buttonLogin, a.buttonLogin,
+.button.moreOptions, a.button.moreOptions {
+  color: rgb(25, 25, 25) !important;
+  text-shadow: none !important;
+}
+
+a.callToAction {
+  border: 1px solid rgb(203, 226, 243) !important;
+}
+
+a.callToAction span {
+  color: rgb(25, 25, 25) !important;
+  background: inherit !important;
+}
+
+a.callToAction:hover span {
+  background-color: rgb(45,50,54) !important;
+}
+
+a.prefixLink:hover .prefix {
+  background-color: rgb(77, 77, 77) !important;
+  border: 1px solid rgb(203, 226, 243) !important;
+}
+
+.prefix.prefixPrimary {
+  background-color: rgb(79,81,82) !important;
+  border-color: rgb(79,81,82) !important;
+}
+
+.userBanner.bannerStaff {
+  color: #C61B1B !important;
+  background-color: rgb(79, 81, 82) !important;
+  border-color: rgb(203, 226, 243) !important;
+}
+
+.userBanner.bannerStaff.wrapped span {
+  background-color: rgb(203,226,243) !important;
+}
+
+.userBanner.bannerPrimary {
+  background-color: rgb(79, 81, 82) !important;
+  border-color: rgb(203, 226, 243) !important;
+}
+
+.userBanner.bannerPrimary.wrapped span {
+  background-color: rgb(203,226,243) !important;
+}
+
+.listBlock.main:hover {
+  background-color: #474747 !important;
+}
+
+.PanelScroller .panel, .PanelScrollerOff .panel {
+  background: #000 !important;
+}
+
+.navTabs .navTab.PopupOpen .navLink {
+  color: #fff !important;
+  background-color: #176093 !important;
+}
+
+.message .signature {
+  border-top: 1px solid #8C8C8C !important;
+}
+
+.messageList .message {
+  border: 1px solid #A8A8A8 !important;
+  box-shadow: 2px 2px 5px #8C8C8C !important;
+}
+
+.vehicleDescBrief dd {
+  background-color: inherit !important;
+}
+
+.messageUserBlock .extraUserInfo {
+  background-color: inherit !important;
+}
+
+.postNav a {
+  color: #ffffff6b !important;
+}
+
+.discussionList .sectionHeaders {
+  background-color: rgb(41,41,41) !important;
+}
+
+.discussionListItems .title a {
+  color: #fefefe !important;
+}
+
+.relProd {
+  background-color: #191919 !important;
+}
+
+.relProd h3 select {
+  background-color: rgb(221,221,221) !important;
+}
+
+.relprodname a, .relprodname a:visited {
+  color: #fff !important;
+}
+
+.relProd .relprodvisual > a img {
+  border: 2px solid #000 !important;
+}
+
+.relprodname a em {
+  color: #ffff84 !important;
+}
+
+.relprodvisual .relprodpopuphighlight a {
+  background-color: rgba(255, 255, 255, 0.6) !important;
+  color: #003875 !important;
+  text-shadow: 0 0 0 transparent, 1px 1px 2px #aaa !important;
+}
+
+.relprodprice a, .relprodprice a:visited {
+  color: #ff4b4b !important;
+  text-shadow: 1px 1px 1px #0000006b !important;
+}
+
+.WatchedList .secondaryContent {
+  background-color: #191919 !important;
+}
+
+.WatchedList .listItem a {
+  color: #fff !important;
+}
+
+.WatchedList li.listItem:hover {
+  background-color: #292929 !important;
+}
+
+.isOp {
+  color: #fff !important;
+}
+
+.myQuicklinks a {
+  color: #fff !important;
+}
+
+.myQuicklinks a:hover {
+  color: #f00 !important;
+}
+
+.WatchedList .listItem.unread .title a {
+  color: #fefefe !important;
+}
+
+#vendorinfo {
+  background-color: #8697ba !important;
+  background-image: inherit !important;
+  color: #000 !important;
+}
+
+#vendorinfo .products {
+  color: #000 !important;
+}
+
+#ForumJumpMenu .blockLinksList .curNode a {
+  background-color: rgb(79, 81, 82) !important;
+}
+
+#headerRight div:nth-of-type(1) {
+  background: linear-gradient(to right, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0) 100%) !important;
+}
+
+#headerRight div:nth-of-type(2) {
+  background: linear-gradient(to left, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0) 100%) !important;
+}
+
+@media (max-width:480px) {
+
+.Responsive .discussionListItem .lastPostInfo dt a {
+  color: #eee !important;
+}
+
+.Responsive .vehicleDescBrief dd {
+  color: inherit !important;
+}
+
+}
+
+
+.EWRporta_ArticleView .categorySummary {
+  background-color: rgb(17, 17, 17) !important;
+  border: 1px solid rgb(17, 17, 17) !important;
+}
+
+.EWRporta_ArticleView .mainComments .pageNavLinkGroup {
+  border-bottom: 1px solid rgb(79, 81, 82) !important;
+}
+
+.EWRporta_ArticleView .mainComments .messageSimple .newIndicator {
+  border: 1px solid rgb(45, 50, 54) !important;
+}
+
+.adminModules .sortColumn .portlet {
+  border: 1px dotted rgb(255, 255, 255) !important;
+}
+
+.adminModules .sortColumn .portlet.locked {
+  border: 1px solid rgb(246, 246, 246) !important;
+}
+
+.adminModules .sortColumn .portlet-placeholder {
+  border: 2px dashed rgb(246, 246, 246) !important;
+}
+
+.discussionList .sectionHeaders {
+  color: rgb(255, 255, 255) !important;
+  background-color: rgb(10, 53, 82) !important;
+}
+
+.discussionList .sectionHeaders a {
+  color: rgb(255, 255, 255) !important;
+}
+
+.discussionListItem {
+  background-color: rgb(25, 25, 25) !important;
+  border-bottom: 1px solid rgb(79, 81, 82) !important;
+}
+
+.discussionListItem .posterAvatar, .discussionListItem .stats {
+  background-color: rgb(41, 41, 41) !important;
+}
+
+.discussionListItem .stats dl {
+  border-left: 1px solid rgb(79, 81, 82) !important;
+  border-right: 1px solid rgb(79, 81, 82) !important;
+}
+
+.discussionListItem .noteRow {
+  background-color: rgb(25, 25, 25) !important;
+}
+
+.discussionListItem .noteRow.secondary {
+  background-color: rgb(41, 41, 41) !important;
+}
+
+.discussionList .discussionListItem.moderated .listBlock {
+  background-color: rgb(25, 25, 25) !important;
+}
+
+.discussionListItem.InlineModChecked, .discussionListItem.InlineModChecked .posterAvatar, .discussionListItem.InlineModChecked .main, .discussionListItem.InlineModChecked .stats, .discussionListItem.InlineModChecked .lastPost,.discussionListItem.deleted.InlineModChecked,.discussionListItem.moderated.InlineModChecked {
+  background-color: rgb(41, 41, 41) !important;
+}
+
+.DiscussionListOptions {
+  border: 1px solid rgb(203, 226, 243) !important;
+}
+
+#DiscussionListOptionsHandle a {
+  color: rgb(203, 226, 243) !important;
+  background-color: rgb(25, 25, 25) !important;
+  border: 1px solid rgb(203, 226, 243) !important;
+}
+
+.discussionListFilters .filtersHeading {
+  color: rgb(45, 50, 54) !important;
+}
+
+.discussionListFilters .removeFilter, .discussionListFilters .removeAllFilters {
+  border: 1px solid rgb(79, 81, 82) !important;
+}
+
+.discussionListFilters .gadget {
+  color: rgb(45, 50, 54) !important;
+}
+
+.discussionListFilters .removeFilter:hover, .discussionListFilters .removeAllFilters:hover {
+  background-color: rgb(77, 77, 77) !important;
+  color: rgb(255, 255, 255) !important;
+}
+
+#InlineModOverlay {
+  border: 1px solid rgb(45, 50, 54) !important;
+}
+
+.InlineModChecked .section, .InlineModChecked .sectionMain, .InlineModChecked .primaryContent, .InlineModChecked .secondaryContent, .InlineModChecked .sectionFooter {
+  background-color: rgb(41, 41, 41) !important;
+}
+
+#loginBar {
+  color: rgb(203, 226, 243) !important;
+}
+
+#loginBar a {
+  color: rgb(143, 210, 255) !important;
+}
+
+#loginBar .textCtrl {
+  color: rgb(255, 255, 255) !important;
+  background-color: rgb(10, 53, 82) !important;
+}
+
+#loginBar .textCtrl:-webkit-autofill {
+  background: rgb(10, 53, 82) !important;
+  color: rgb(255, 255, 255) !important;
+}
+
+#loginBar input.textCtrl.disabled {
+  color: rgb(203, 226, 243) !important;
+}
+
+#loginBar #loginBarHandle {
+  color: rgb(203, 226, 243) !important;
+}
+
+
+/* thread/post view (bb_code, message, thread_view bundle) */
+
+.bbCodeBlock {
+  border: 1px solid rgb(109, 109, 109) !important;
+}
+
+.bbCodeBlock .type {
+  color: rgb(45, 50, 54) !important;
+  border-bottom: 1px solid rgb(203, 226, 243) !important;
+}
+
+.bbCodeQuote .attribution {
+  color: rgb(246, 246, 246) !important;
+  background: rgb(47, 47, 47) none !important;
+}
+
+.bbCodeQuote .quoteContainer {
+  background-color: rgb(17, 17, 17) !important;
+}
+
+.bbCodeQuote .quoteContainer .quoteExpand {
+  background: linear-gradient(to bottom, rgba(17, 17, 17, 0) 0%, rgb(17, 17, 17) 80%) !important;
+}
+
+.hasJs .bbCodeSpoilerText {
+  background-color: rgb(77, 77, 77) !important;
+  border: 1px solid rgb(79, 81, 82) !important;
+}
+
+#loginBar {
+  color: rgb(203, 226, 243) !important;
+}
+
+#loginBar a {
+  color: rgb(143, 210, 255) !important;
+}
+
+#loginBar .textCtrl {
+  color: rgb(255, 255, 255) !important;
+  background-color: rgb(10, 53, 82) !important;
+}
+
+#loginBar .textCtrl:-webkit-autofill {
+  background: rgb(10, 53, 82) !important;
+  color: rgb(255, 255, 255) !important;
+}
+
+#loginBar input.textCtrl.disabled {
+  color: rgb(203, 226, 243) !important;
+}
+
+#loginBar #loginBarHandle {
+  color: rgb(203, 226, 243) !important;
+}
+
+.messageList .message {
+  border-top: 1px solid rgb(79, 81, 82) !important;
+}
+
+.message .newIndicator {
+  border: 1px solid rgb(45, 50, 54) !important;
+}
+
+.message .newIndicator span {
+  background-color: rgb(45, 50, 54) !important;
+}
+
+.message .editDate {
+  color: rgb(255, 255, 255) !important;
+}
+
+.message .signature {
+  color: rgb(255, 255, 255) !important;
+  border-top: 1px dashed rgb(203, 226, 243) !important;
+}
+
+.message .publicControls .MultiQuoteControl.active {
+  background-color: rgb(79, 81, 82) !important;
+}
+
+.message .likesSummary {
+  background-color: rgb(17, 17, 17) !important;
+  border: 1px solid rgb(17, 17, 17) !important;
+}
+
+.InlineModChecked .messageUserBlock, .InlineModChecked .messageInfo, .InlineModChecked .messageNotices, .InlineModChecked .bbCodeBlock .type, .InlineModChecked .bbCodeBlock blockquote, .InlineModChecked .attachedFiles .attachedFilesHeader, .InlineModChecked .attachedFiles .attachmentList {
+  background-color: rgb(41, 41, 41) !important;
+}
+
+.InlineModChecked .messageUserBlock .arrow span {
+  border-left-color: rgb(100, 100, 100) !important;
+}
+
+.messageList .newMessagesNotice {
+  border: 1px solid rgb(203, 226, 243) !important;
+}
+
+.postsRemaining a,a.postsRemaining {
+  color: rgb(255, 255, 255) !important;
+}
+
+.messageUserBlock {
+  background-color: rgb(47, 47, 47) !important;
+  border: 1px solid rgb(74, 74, 74) !important;
+}
+
+.messageUserBlock .extraUserInfo {
+  background-color: rgb(77, 77, 77) !important;
+}
+
+.messageUserBlock .arrow {
+  border-left-color: rgb(74, 74, 74) !important;
+}
+
+.PanelScroller .scrollContainer, .PanelScrollerOff .panel {
+  background-color: rgb(25, 25, 25) !important;
+  border: 1px solid rgb(203, 226, 243) !important;
+}
+
+.PanelScroller .navControls a {
+  background-color: rgb(77, 77, 77) !important;
+  border: 1px solid rgb(203, 226, 243) !important;
+}
+
+.PanelScroller .navControls a:hover {
+  background-color: rgb(77, 77, 77) !important;
+}
+
+.PanelScroller .navControls a.current {
+  background-color: rgb(79, 81, 82) !important;
+}
+
+.PanelScroller .navControls a.current span {
+  border-top: 5px solid rgb(203, 226, 243) !important;
+}
+
+.PanelScroller .navControls a.current .arrow {
+  border-top-color: rgb(203, 226, 243) !important;
+}
+
+.PanelScroller .navControls a .arrow span {
+  border-top-color: rgb(25, 25, 25) !important;
+}
+
+.thread_view .threadAlerts {
+  border: 1px solid rgb(79, 81, 82) !important;
+}
+
+.thread_view .threadAlerts dt {
+  color: rgb(45, 50, 54) !important;
+}
+
+.thread_view .threadAlerts dd {
+  color: rgb(10, 53, 82) !important;
+}
+
+.thread_view .threadNotices {
+  background-color: rgb(77, 77, 77) !important;
+  border: 1px solid rgb(203, 226, 243) !important;
+}
+
+
+/* Manual overrides: TacomaWorld's dark CSS disables these properties entirely
+   (renames them, e.g. "xbackground-color") rather than recoloring them, on the
+   assumption the element falls through to a dark ancestor. Tundras' own light
+   CSS sets these !important, so leaving them unset here would leave the light
+   color fully intact. Forced to dark manually. */
+
+.messageList .message {
+  background-color: rgb(37, 37, 37) !important;
+}
+
+.messageUserBlock {
+  background-image: none !important;
+}
+
+.messageUserBlock div.avatarHolder {
+  background-color: rgb(37, 37, 37) !important;
+}
+
+.messageUserBlock .arrow span {
+  border-left-color: rgb(74, 74, 74) !important;
+}
+
+.node .nodeLastPost {
+  background-color: rgb(41, 41, 41) !important;
+  border: 1px solid rgb(79, 81, 82) !important;
+}
+
+#loginBar {
+  border-bottom: 1px solid rgb(79, 81, 82) !important;
+}
+/* Batch fix: kill leftover light-theme gradient/sprite background-images
+   on elements where we already forced a dark background-color elsewhere.
+   TacomaWorld either omits the background property in its dark CSS
+   (relying on a dark ancestor) or the shorthand still carries a light
+   image asset -- either way, forcing background-image: none here removes
+   the light artifact while our background-color override stays. */
+
+.subHeading {
+  background-image: none !important;
+}
+
+.secondaryContent {
+  background-image: none !important;
+}
+
+.Popup .PopupControl.PopupOpen,.Popup.PopupContainerControl.PopupOpen {
+  background-image: none !important;
+}
+
+.dataTable .dataRow .delete {
+  background-image: none !important;
+}
+
+ul.autoCompleteList {
+  background-image: none !important;
+}
+
+.breadcrumb {
+  background-image: none !important;
+}
+
+.navTabs .navTab.selected.PopupOpen .navLink {
+  background-image: none !important;
+}
+
+.nodeList .categoryStrip {
+  background-image: none !important;
+}
+
+.discussionList .sectionHeaders {
+  background-image: none !important;
+}
+
+.Popup.PopupContainerControl.PopupOpen {
+  background-image: none !important;
+}
+
+.messageUserBlock {
+  background-image: none !important;
+}
+
+.notice_1 .noticeContent {
+  background-image: none !important;
+}
+
+.discussionListItem .posterAvatar, .discussionListItem .stats {
+  background-image: none !important;
+}
+
+.discussionListItem .noteRow.secondary {
+  background-image: none !important;
+}
+
+.discussionListItem.InlineModChecked, .discussionListItem.InlineModChecked .posterAvatar, .discussionListItem.InlineModChecked .main, .discussionListItem.InlineModChecked .stats, .discussionListItem.InlineModChecked .lastPost,.discussionListItem.deleted.InlineModChecked,.discussionListItem.moderated.InlineModChecked {
+  background-image: none !important;
+}
+
+.InlineModChecked .section, .InlineModChecked .sectionMain, .InlineModChecked .primaryContent, .InlineModChecked .secondaryContent, .InlineModChecked .sectionFooter {
+  background-image: none !important;
+}
+
+.bbCodeQuote .quoteContainer {
+  background-image: none !important;
+}
+
+.InlineModChecked .messageUserBlock, .InlineModChecked .messageInfo, .InlineModChecked .messageNotices, .InlineModChecked .bbCodeBlock .type, .InlineModChecked .bbCodeBlock blockquote, .InlineModChecked .attachedFiles .attachedFilesHeader, .InlineModChecked .attachedFiles .attachmentList {
+  background-image: none !important;
+}
+
+
+/* Reply editor (Redactor WYSIWYG) toolbar/box; light theme uses a bright blue
+   gradient toolbar + white dropdown menus, called out explicitly as an
+   artifact. allFrames is enabled in background.js so this also reaches the
+   editor's WYSIWYG iframe if it's same-origin. */
+
+.redactor_toolbar {
+  background: rgb(41, 41, 41) !important;
+}
+
+.redactor_toolbar li.redactor_btn_group ul {
+  background-color: rgb(41, 41, 41) !important;
+  border: 1px solid rgb(79, 81, 82) !important;
+}
+
+.redactor_box {
+  border: 1px solid rgb(79, 81, 82) !important;
+}
+
+.redactor_editor, iframe.redactor_editor, body.redactor_editor {
+  background-color: rgb(37, 37, 37) !important;
+  color: rgb(246, 246, 246) !important;
+}
+
+/* Breadcrumb crumb boxes and footer strip: light solid colors with no dark
+   counterpart generated at all (TacomaWorld leaves these selectors alone,
+   apparently by original design choice, not a recolor). */
+
+.breadcrumb .crust a.crumb {
+  background-color: rgb(37, 37, 37) !important;
+}
+
+.breadcrumb .crust:hover a.crumb {
+  background-color: rgb(74, 74, 74) !important;
+}
+
+.sectionFooter {
+  background-color: rgb(41, 41, 41) !important;
+}
+
+.breadcrumb {
+  background-color: rgb(25, 25, 25) !important;
+}
+
+#fnav {
+  background-color: rgb(41, 41, 41) !important;
+}
+
+/* Multi-page thread indicator boxes ("1 2 3" mini page nav next to a thread
+   title). Never touched by the normal diff since it's a selector that only
+   exists cross-bundle in an odd way; left at its original light cream/brown
+   colors, unreadable against the now-dark row. */
+
+.itemPageNav a, .itemPageNav span {
+  background: rgb(41, 41, 41) !important;
+  color: rgb(246, 246, 246) !important;
+  border-color: rgb(79, 81, 82) !important;
+}
+
+.itemPageNav a:hover {
+  background-color: rgb(74, 74, 74) !important;
+  color: rgb(246, 246, 246) !important;
+}
+
+.breadcrumb .crust .arrow span {
+  border-left-color: rgb(37, 37, 37) !important;
+}
+
+.breadcrumb .crust:hover .arrow span {
+  border-left-color: rgb(74, 74, 74) !important;
+}

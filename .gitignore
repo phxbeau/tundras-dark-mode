@@ -1,0 +1,10 @@
+# Build artifacts -- regenerate with `python build.py`, don't version-control them
+dist/
+tundras-dark-mode.xpi
+
+# Local tool/debug files, not part of the extension
+.claude/
+input/
+
+# NFS lock files
+.nfs*

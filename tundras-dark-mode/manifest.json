@@ -1,0 +1,40 @@
+{
+  "manifest_version": 3,
+  "name": "Tundras.com Dark Mode",
+  "version": "1.4.0",
+  "description": "Unofficial dark theme for tundras.com, adapted from TacomaWorld's dark style since both sites run the same XenForo platform.",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "tundras-dark-mode@local",
+      "strict_min_version": "109.0"
+    }
+  },
+  "permissions": ["storage", "scripting", "tabs"],
+  "host_permissions": ["https://www.tundras.com/*"],
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "96": "icons/icon-96.png",
+    "128": "icons/icon-128.png"
+  },
+  "action": {
+    "default_title": "Toggle Tundras Dark Mode",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png",
+      "48": "icons/icon-48.png"
+    }
+  },
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.tundras.com/*"],
+      "js": ["redactor-fix.js"],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ]
+}
