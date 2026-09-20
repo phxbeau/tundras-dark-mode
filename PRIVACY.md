@@ -1,6 +1,6 @@
 # Privacy Policy for Tundras Dark Mode
 
-Last updated: 2026-09-15
+Last updated: 2026-09-19
 
 ## Summary
 
@@ -46,8 +46,7 @@ the stated purpose:
 |---|---|
 | `storage` | Remembers whether you last turned the theme on or off, locally on your device. |
 | `scripting` | Injects and removes `dark.css` on tundras.com pages. This is how the theme is applied and how the toolbar toggle turns it off. |
-| `tabs` | Detects when a tundras.com tab finishes loading or navigates, so the theme can be (re)applied without a visible flash of the original light theme. |
-| `host_permissions` (`https://www.tundras.com/*`) | The extension only ever acts on this one domain. It has no access to, and makes no request to, any other website. |
+| `host_permissions` (`https://www.tundras.com/*`) | The extension only ever acts on this one domain. This is also what lets it notice when a tundras.com tab starts loading, so the theme can be applied without a visible flash of the original light theme. It has no access to, and makes no request to, any other website. |
 
 ## Third parties
 
