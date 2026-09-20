@@ -7,6 +7,7 @@ Unofficial dark theme for tundras.com, adapted from TacomaWorld's dark style
 
     tundras-dark-mode/     single shared source (manifest.json is the Firefox flavour)
     build.py               emits per-browser packages into dist/
+    tools/make_icons.py    regenerates the icon PNGs (not part of the build)
     dist/
       tundras-dark-mode-firefox.xpi
       chrome/                          unpacked, for "Load unpacked"
