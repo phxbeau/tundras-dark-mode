@@ -38,6 +38,11 @@ CHECKS = [
     # page to exercise the "Post Reply" one.
     ("login button text",       "a.buttonLogin",                             "color",           "rgb(25, 25, 25)",   False),
     ("more-options button text", "a.button.moreOptions",                     "color",           "rgb(25, 25, 25)",   False),
+    # Anchor-based buttons: XenForo renders many buttons as <a class="button">,
+    # and the broad a:link rule in dark.css used to paint them white on their
+    # light background. Guard the general case, not just the two variants above.
+    ("anchor button text",      "a.button",                                  "color",           "rgb(25, 25, 25)",   False),
+    ("primary button text",     ".button.primary",                           "color",           "rgb(25, 25, 25)",   False),
 ]
 
 WIN_CANDIDATES = {

@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Tundras.com Dark Mode",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "description": "Unofficial dark theme for tundras.com, adapted from TacomaWorld's dark style since both sites run the same XenForo platform.",
   "browser_specific_settings": {
     "gecko": {

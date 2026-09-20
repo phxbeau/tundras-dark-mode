@@ -497,17 +497,50 @@ ul.autoCompleteList li:hover, ul.autoCompleteList li.selected {
   color: rgb(25, 25, 25) !important;
 }
 
-/* The site paints these two buttons with WHITE text on its own light gradient
-   sprite, and the dark theme never touched them: "Post Reply" ended up white on
-   #A5CAE4 (1.73:1) and "More..." white on #DCDCEB (1.36:1) -- both effectively
-   unreadable. The buttons keep their light background (it is a background-image
-   sprite, not a color we can simply recolor), so darken the text instead, which
-   is exactly what .button / input.button already do on this site. Not a
-   Chromium-only bug: Firefox computes the same values. */
-.buttonLogin, a.buttonLogin,
-.button.moreOptions, a.button.moreOptions {
+/* Buttons keep the site's light gradient sprite as their background, because it
+   is a background-image rather than a colour we can simply recolour. XenForo
+   renders many of them as <a class="button">, so the broad
+   `a:link,a:visited { color: white }` rule near the top of this file paints
+   those buttons white on light: 1.16 to 1.36:1, effectively invisible. Non-anchor
+   buttons (<input>, <button>) were never affected, which is why this went
+   unnoticed for so long and why "Post Reply", "More...", "Delete Post..." and
+   the multi-quote buttons all looked broken while "Save Changes" and "Cancel"
+   beside them looked fine.
+
+   Darken the text on every button variant instead. The `:link`/`:visited` forms
+   are required: `a:link` outranks a bare `.button` on specificity, so without
+   them the anchor rule would still win. Not browser-specific; Firefox and
+   Chromium compute identical values. */
+.button, a.button, a.button:link, a.button:visited,
+.buttonLogin, a.buttonLogin, a.buttonLogin:link, a.buttonLogin:visited,
+.callToAction, a.callToAction:link, a.callToAction:visited {
   color: rgb(25, 25, 25) !important;
   text-shadow: none !important;
+}
+
+/* A button can also carry .muted (XenForo uses it for secondary actions such as
+   "Delete Post..." in an overlay footer). Both muted rules in this file outrank
+   the button rule above on specificity: `body .muted` is (0,1,1) against a bare
+   `.button`, and `.xenOverlay .formOverlay a.muted` is (0,3,1) against
+   `a.button:link`. So they need restating at higher specificity, or a muted
+   button stays white on its light background. The site itself gives muted
+   buttons ordinary near-black text, so match that. */
+body .button.muted,
+body a.button.muted, body a.button.muted:link, body a.button.muted:visited,
+body input.button.muted, body button.button.muted,
+.xenOverlay .formOverlay a.button.muted,
+.xenOverlay .formOverlay a.button.muted:link,
+.xenOverlay .formOverlay a.button.muted:visited,
+.xenOverlay .formOverlay .muted a.button {
+  color: rgb(25, 25, 25) !important;
+}
+
+/* Keep disabled buttons looking disabled rather than merely dark: match the
+   grey the site already uses for input.button.disabled. Low contrast is
+   intentional here, and disabled controls are exempt from the WCAG minimum. */
+.button.disabled, a.button.disabled,
+a.button.disabled:link, a.button.disabled:visited {
+  color: rgb(153, 153, 153) !important;
 }
 
 a.callToAction {

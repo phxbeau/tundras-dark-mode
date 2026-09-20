@@ -56,6 +56,11 @@ $Checks = @(
     # Only on some pages -- use -Url on a thread page to exercise "Post Reply".
     @{ Label = 'login button text';       Sel = 'a.buttonLogin';                          Prop = 'color';           Want = 'rgb(25, 25, 25)';    Required = $false }
     @{ Label = 'more-options button text';Sel = 'a.button.moreOptions';                   Prop = 'color';           Want = 'rgb(25, 25, 25)';    Required = $false }
+    # Anchor-based buttons: XenForo renders many buttons as <a class="button">,
+    # and the broad a:link rule in dark.css used to paint them white on their
+    # light background. Guard the general case, not just the two above.
+    @{ Label = 'anchor button text';      Sel = 'a.button';                               Prop = 'color';           Want = 'rgb(25, 25, 25)';    Required = $false }
+    @{ Label = 'primary button text';     Sel = '.button.primary';                        Prop = 'color';           Want = 'rgb(25, 25, 25)';    Required = $false }
 )
 
 function Find-Browser([string] $Name) {
