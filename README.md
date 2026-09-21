@@ -3,6 +3,16 @@
 Unofficial dark theme for tundras.com, adapted from TacomaWorld's dark style
 (both sites run XenForo). Runs on Firefox, Chrome, Edge and Chromium.
 
+## Get it
+
+- **Firefox:** [addons.mozilla.org](https://addons.mozilla.org/en-US/firefox/addon/tundras-com-dark-mode/)
+- **Chrome, Brave, Vivaldi:** [Chrome Web Store](https://chromewebstore.google.com/detail/tundrascom-dark-mode/kfmdclihgngdemphagblclfkmhaanehb)
+- **Edge:** turn on *Allow extensions from other stores* in `edge://extensions`,
+  then install from the Chrome Web Store link above.
+
+Click the toolbar icon to switch the theme on or off. The extension collects no
+data; see [PRIVACY.md](PRIVACY.md).
+
 ## Layout
 
     tundras-dark-mode/     single shared source (manifest.json is the Firefox flavour)
@@ -21,7 +31,9 @@ Build with:
 
     python3 build.py
 
-## Installing
+## Installing a local build
+
+For testing changes before they reach the stores.
 
 **Firefox**: `about:addons` → gear icon → *Install Add-on From File…* →
 `dist/tundras-dark-mode-firefox.xpi`. For a quick unsigned test instead use
