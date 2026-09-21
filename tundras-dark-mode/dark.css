@@ -309,12 +309,43 @@ a.PageNavPrev,a.PageNavNext {
   border-top: 1px solid rgb(79, 81, 82) !important;
 }
 
+/* Text fields (every input, textarea and select on the site uses .textCtrl).
+   The port carried over the site's text colour change but not its background,
+   so fields kept XenForo's white background and light gradient image while their
+   text was forced white: 1:1, invisible, until the field was focused and the old
+   `background: inherit` focus rule let the dark page show through. That is why
+   text appeared while typing and vanished on clicking away. Give fields their
+   own dark background in every state instead. */
 .textCtrl {
-  color: rgb(255, 255, 255) !important;
+  color: rgb(246, 246, 246) !important;
+  background-color: rgb(37, 37, 37) !important;
+  background-image: none !important;
+  border-color: rgb(128, 128, 128) !important;
 }
 
-.textCtrl:focus,.textCtrl.Focus {
-  background: inherit !important;
+.textCtrl:focus, .textCtrl.Focus {
+  background-color: rgb(25, 25, 25) !important;
+  background-image: none !important;
+  border-color: rgb(143, 210, 255) !important;
+}
+
+/* Native dropdown lists take their colours from the option elements rather
+   than the select, so without this a browser can draw the open list as white
+   text on its default white. */
+.textCtrl option {
+  background-color: rgb(37, 37, 37) !important;
+  color: rgb(246, 246, 246) !important;
+}
+
+.textCtrl::placeholder, .textCtrl.prompt {
+  color: rgb(170, 170, 170) !important;
+}
+
+/* Disabled fields stay visibly different from editable ones. */
+input.textCtrl.disabled, textarea.textCtrl.disabled, .disabled .textCtrl,
+.textCtrl:disabled {
+  background-color: rgb(47, 47, 47) !important;
+  color: rgb(140, 140, 140) !important;
 }
 
 textarea.textCtrl:focus {

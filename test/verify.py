@@ -43,6 +43,12 @@ CHECKS = [
     # light background. Guard the general case, not just the two variants above.
     ("anchor button text",      "a.button",                                  "color",           "rgb(25, 25, 25)",   False),
     ("primary button text",     ".button.primary",                           "color",           "rgb(25, 25, 25)",   False),
+    # Text fields kept XenForo's white background while their text was forced
+    # white, so anything typed vanished once the field lost focus. The header
+    # search box is on every page; #loginBar has its own navy fields, so do not
+    # use a bare input.textCtrl selector here (the login bar's come first).
+    ("text field background",   "#QuickSearchQuery",                         "backgroundColor", "rgb(37, 37, 37)",   False),
+    ("text field text",         "#QuickSearchQuery",                         "color",           "rgb(246, 246, 246)",False),
 ]
 
 WIN_CANDIDATES = {

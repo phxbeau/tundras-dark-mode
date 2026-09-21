@@ -61,6 +61,10 @@ $Checks = @(
     # light background. Guard the general case, not just the two above.
     @{ Label = 'anchor button text';      Sel = 'a.button';                               Prop = 'color';           Want = 'rgb(25, 25, 25)';    Required = $false }
     @{ Label = 'primary button text';     Sel = '.button.primary';                        Prop = 'color';           Want = 'rgb(25, 25, 25)';    Required = $false }
+    # Text fields kept XenForo's white background while their text was forced
+    # white. Use the header search box; #loginBar has its own navy fields.
+    @{ Label = 'text field background';   Sel = '#QuickSearchQuery';                      Prop = 'backgroundColor'; Want = 'rgb(37, 37, 37)';    Required = $false }
+    @{ Label = 'text field text';         Sel = '#QuickSearchQuery';                      Prop = 'color';           Want = 'rgb(246, 246, 246)'; Required = $false }
 )
 
 function Find-Browser([string] $Name) {
