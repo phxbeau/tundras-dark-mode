@@ -940,8 +940,68 @@ a.prefixLink:hover .prefix {
   border-left-color: rgb(100, 100, 100) !important;
 }
 
+/* Light panels the site paints with its own gradient images, which this theme
+   had never darkened, so the white body and link text landed on pale blue,
+   peach or near-white at 1.24 to 1.61:1. These are panels rather than
+   sprite-shaped buttons, so darken the panel instead of the text (compare the
+   button rule further down), matching how .threadNotices is already handled.
+   Measured on the live site with the markup injected where a page does not
+   naturally show it. */
+
+/* "Messages have been posted since you loaded this page. View them?" */
 .messageList .newMessagesNotice {
   border: 1px solid rgb(203, 226, 243) !important;
+  background-color: rgb(41, 41, 41) !important;
+  background-image: none !important;
+  color: rgb(246, 246, 246) !important;
+}
+
+.messageList .newMessagesNotice a,
+.messageList .newMessagesNotice a:link,
+.messageList .newMessagesNotice a:visited {
+  color: rgb(143, 210, 255) !important;
+}
+
+/* Moderation notices on a post (deleted, moderated, warned). The site uses a
+   warm peach to flag these; keep that cue as the border on a warm dark panel. */
+.messageNotices li {
+  background-color: rgb(58, 50, 40) !important;
+  background-image: none !important;
+  border-color: rgb(249, 217, 176) !important;
+  color: rgb(246, 246, 246) !important;
+}
+
+.messageNotices li a,
+.messageNotices li a:link,
+.messageNotices li a:visited {
+  color: rgb(143, 210, 255) !important;
+}
+
+/* Secondary cells in data tables: keep them a shade apart from primary cells. */
+.dataTable tr.dataRow td.secondary {
+  background-color: rgb(47, 47, 47) !important;
+  background-image: none !important;
+}
+
+/* Calendar add-on: disabled day. Kept deliberately dim so it still reads as
+   disabled; disabled controls are exempt from the WCAG minimum. */
+a.caldisabled, a.caldisabled:link, a.caldisabled:visited {
+  background-color: rgb(41, 41, 41) !important;
+  color: rgb(140, 140, 140) !important;
+}
+
+/* "Advanced Search" in the quick-search popup. Not rendered for guests, so
+   this could not be verified; covered because it is the same pattern. */
+.formPopup .advSearchLink {
+  background-color: rgb(41, 41, 41) !important;
+  background-image: none !important;
+}
+
+/* Poster's vehicle mod list under the avatar. Plain text, not a link, so the
+   global link rule never reached it, and the site's own #06274D navy sat on
+   the dark user block at 1.77:1. */
+.vehicleDesc, .vehicleDesc dt, .vehicleDesc dd {
+  color: rgb(203, 226, 243) !important;
 }
 
 .postsRemaining a,a.postsRemaining {
