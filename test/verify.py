@@ -214,6 +214,21 @@ PROBE = """(() => {
 })()"""
 
 
+# The reply editor is a same-origin about:blank iframe that the page builds with
+# JavaScript (XenForo's Redactor); recreate one in the real content area. Do not
+# use the first .pageContent on the page, which sits inside #loginBar.
+MAKE_EDITOR = """(() => {
+  if (document.getElementById('probeEditor')) return 1;
+  const box = document.createElement('div'); box.className = 'redactor_box'; box.id = 'probeEditor';
+  const f = document.createElement('iframe'); f.className = 'redactor_editor';
+  box.appendChild(f); document.querySelector('#content .pageContent').appendChild(box);
+  f.contentDocument.body.innerHTML = '<p>Write your reply...</p>';
+  return 1;
+})()"""
+EDITOR_BG = """(() => { const f = document.querySelector('#probeEditor iframe');
+  return f ? getComputedStyle(f.contentDocument.body).backgroundColor : null; })()"""
+
+
 def probe(cdp):
     spec = [[f"{i}", c[1], c[2]] for i, c in enumerate(CHECKS)]
     raw = cdp.evaluate(PROBE % json.dumps(spec))
@@ -287,35 +302,54 @@ def run_browser(name, binary, url, ext_path, screenshot_dir, page_wait):
 
 
 def toggle_check(port, proc, page_cdp):
-    """One removeCSS must fully un-theme the page (i.e. exactly one copy is injected)."""
-    label = "toggle off reverts (single injection)"
+    """Switch the theme off the way the toolbar button does, then check that both
+    the page and the reply editor revert.
+
+    The editor is an about:blank iframe the page builds itself, styled by
+    redactor-fix.js rather than dark.css, so it has to follow the stored on/off
+    setting separately. One removeCSS must also fully un-theme the page (exactly
+    one copy of the stylesheet injected)."""
+    label = "toggle off reverts page and editor"
     try:
+        page_cdp.evaluate(MAKE_EDITOR)
+        time.sleep(1.5)
         # The MV3 service worker idles out; reloading the tab wakes it.
         try:
             sw = wait_for_target(port, lambda t: t["type"] == "service_worker", 5, proc, "sw")
         except HarnessError:
             page_cdp.call("Page.reload")
             time.sleep(4)
+            page_cdp.evaluate(MAKE_EDITOR)
+            time.sleep(1.5)
             sw = wait_for_target(port, lambda t: t["type"] == "service_worker", 30, proc,
                                  "the extension service worker")
         sw_cdp = CDP(sw["webSocketDebuggerUrl"])
         try:
-            sw_cdp.evaluate("""(async () => {
-              const tabs = await chrome.tabs.query({url: 'https://www.tundras.com/*'});
-              for (const t of tabs)
-                await chrome.scripting.removeCSS({target:{tabId:t.id, allFrames:true},
-                                                  files:['dark.css'], origin:'USER'});
-              return tabs.length;
+            # body of api.action.onClicked in background.js
+            now_on = sw_cdp.evaluate("""(async () => {
+              const newEnabled = !(await isEnabled());
+              await api.storage.local.set({ enabled: newEnabled });
+              await updateBadge(newEnabled);
+              const tabs = await api.tabs.query({ url: MATCH_URL });
+              for (const t of tabs) await applyToTab(t.id, newEnabled);
+              return newEnabled;
             })()""")
         finally:
             sw_cdp.close()
+        if now_on:
+            return ("SKIP", label, "reverts", "theme was already off before the toggle")
         time.sleep(1.5)
-        after = page_cdp.evaluate(
+        nav = page_cdp.evaluate(
             "getComputedStyle(document.querySelector('.navTabs')).backgroundColor")
-        if after == DARK_NAV:
-            return ("FAIL", label, "nav bar reverts to the site's own color",
-                    f"still {after} -- stylesheet injected more than once")
-        return ("PASS", label, "reverts", after)
+        editor = page_cdp.evaluate(EDITOR_BG)
+        problems = []
+        if nav == DARK_NAV:
+            problems.append(f"nav bar still {nav} (stylesheet injected more than once)")
+        if editor and editor.startswith("rgb(") and editor != "rgba(0, 0, 0, 0)":
+            problems.append(f"reply editor still {editor} (redactor-fix.js ignored the setting)")
+        if problems:
+            return ("FAIL", label, "page and editor revert to the site's own colours", "; ".join(problems))
+        return ("PASS", label, "reverts", f"nav {nav}, editor {editor}")
     except HarnessError as e:
         return ("SKIP", label, "reverts", f"could not test ({e})")
 

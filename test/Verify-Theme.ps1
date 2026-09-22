@@ -195,33 +195,59 @@ function Invoke-BrowserCheck([string] $Name, [string] $Binary, [string] $Ext) {
             }
         }
 
-        # Toggling off must fully revert: insertCSS stacks, and one removeCSS
-        # used to leave the page still dark. This is the regression guard.
-        $tLabel = 'toggle off reverts (single injection)'
+        # Switch the theme off the way the toolbar button does, then check that both
+        # the page and the reply editor revert. The editor is an about:blank iframe
+        # the page builds itself, styled by redactor-fix.js rather than dark.css, so
+        # it must follow the stored on/off setting separately. One removeCSS must
+        # also fully un-theme the page (exactly one copy of the stylesheet injected).
+        $tLabel = 'toggle off reverts page and editor'
+        $makeEditor = @'
+(() => {
+  if (document.getElementById('probeEditor')) return 1;
+  const box = document.createElement('div'); box.className = 'redactor_box'; box.id = 'probeEditor';
+  const f = document.createElement('iframe'); f.className = 'redactor_editor';
+  box.appendChild(f); document.querySelector('#content .pageContent').appendChild(box);
+  f.contentDocument.body.innerHTML = '<p>Write your reply...</p>';
+  return 1;
+})()
+'@
         try {
+            [void]$cdp.Evaluate($makeEditor); Start-Sleep -Milliseconds 1500
             $sw = $null
             try { $sw = Wait-Target $port { param($t) $t.type -eq 'service_worker' } 5 $proc 'sw' }
             catch {
                 [void]$cdp.Call('Page.reload', @{}); Start-Sleep -Seconds 4
+                [void]$cdp.Evaluate($makeEditor); Start-Sleep -Milliseconds 1500
                 $sw = Wait-Target $port { param($t) $t.type -eq 'service_worker' } 30 $proc 'the extension service worker'
             }
             $swCdp = [Cdp]::new($sw.webSocketDebuggerUrl)
             try {
-                [void]$swCdp.Evaluate(@'
+                # body of api.action.onClicked in background.js
+                $nowOn = $swCdp.Evaluate(@'
 (async () => {
-  const tabs = await chrome.tabs.query({url: 'https://www.tundras.com/*'});
-  for (const t of tabs)
-    await chrome.scripting.removeCSS({target:{tabId:t.id, allFrames:true}, files:['dark.css'], origin:'USER'});
-  return tabs.length;
+  const newEnabled = !(await isEnabled());
+  await api.storage.local.set({ enabled: newEnabled });
+  await updateBadge(newEnabled);
+  const tabs = await api.tabs.query({ url: MATCH_URL });
+  for (const t of tabs) await applyToTab(t.id, newEnabled);
+  return newEnabled;
 })()
 '@)
             } finally { $swCdp.Close() }
-            Start-Sleep -Milliseconds 1500
-            $after = $cdp.Evaluate("getComputedStyle(document.querySelector('.navTabs')).backgroundColor")
-            if ($after -eq $DarkNav) {
-                $results += @{ Status = 'FAIL'; Label = $tLabel; Want = "nav bar reverts to the site's own color"; Got = "still $after -- stylesheet injected more than once" }
+            if ($nowOn) {
+                $results += @{ Status = 'SKIP'; Label = $tLabel; Want = 'reverts'; Got = 'theme was already off before the toggle' }
             } else {
-                $results += @{ Status = 'PASS'; Label = $tLabel; Want = 'reverts'; Got = $after }
+                Start-Sleep -Milliseconds 1500
+                $nav = $cdp.Evaluate("getComputedStyle(document.querySelector('.navTabs')).backgroundColor")
+                $editor = $cdp.Evaluate("(() => { const f = document.querySelector('#probeEditor iframe'); return f ? getComputedStyle(f.contentDocument.body).backgroundColor : null; })()")
+                $problems = @()
+                if ($nav -eq $DarkNav) { $problems += "nav bar still $nav (stylesheet injected more than once)" }
+                if ($editor -and $editor -ne 'rgba(0, 0, 0, 0)') { $problems += "reply editor still $editor (redactor-fix.js ignored the setting)" }
+                if ($problems.Count -gt 0) {
+                    $results += @{ Status = 'FAIL'; Label = $tLabel; Want = "page and editor revert to the site's own colours"; Got = ($problems -join '; ') }
+                } else {
+                    $results += @{ Status = 'PASS'; Label = $tLabel; Want = 'reverts'; Got = "nav $nav, editor $editor" }
+                }
             }
         } catch {
             $results += @{ Status = 'SKIP'; Label = $tLabel; Want = 'reverts'; Got = "could not test ($($_.Exception.Message))" }
